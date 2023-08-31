@@ -27,7 +27,7 @@ const markup = partsGallery(galleryItems);
 ul.insertAdjacentHTML('beforeend', markup);
 ul.addEventListener('click', onClick);
 function onClick(event) {
-
+    event.preventDefault();
     if (!event.target.classList.contains('gallery__image')) {
         return; 
     }
@@ -47,6 +47,7 @@ const instance = basicLightbox.create(`
     </div>
 `)
 
-instance.show()
+    instance.show()
+    console.log(description);
 }
 

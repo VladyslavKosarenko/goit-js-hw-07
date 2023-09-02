@@ -25,6 +25,7 @@ const ul = document.querySelector('.gallery');
 const markup = partsGallery(galleryItems);
 
 ul.insertAdjacentHTML('beforeend', markup);
+let modalInstance = null;
 ul.addEventListener('click', onClick);
 function onClick(event) {
     event.preventDefault();
@@ -36,7 +37,7 @@ function onClick(event) {
     const description = event.target.alt;
     console.log(event.target.dataset.source);
     // modal
-const instance = basicLightbox.create(`
+const modalInstance = basicLightbox.create(`
     <div class="modal">
     <img
                     class="gallery__image"
@@ -47,7 +48,14 @@ const instance = basicLightbox.create(`
     </div>
 `)
 
-    instance.show()
+    modalInstance.show();
     console.log(description);
+    document.addEventListener('keydown', onKeyPress);
 }
-
+function onKeyPress(event) {
+    if (event.code === 'Escape' && modalInstance !== null) {
+        modalInstance.close();
+        modalInstance = null;
+        document.removeEventListener('keydown', onKeyPress);
+    }
+}

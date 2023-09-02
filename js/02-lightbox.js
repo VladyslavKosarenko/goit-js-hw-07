@@ -26,12 +26,18 @@ function onClick(event) {
     event.preventDefault();
     const target = event.target;
     if (target.classList.contains('gallery__image')) {
-        const parentLink = target.closest('.gallery__link')
-        lightbox.open(parentLink);
+        const parent = target.closest('.gallery__link')
+        lightbox.open(parent);
     }
 }
 
 const lightbox = new SimpleLightbox('.gallery a', {
-        captions: true,        
-        captionDelay: 250     
-    });
+    sourceAttr: 'href', 
+    captions: true,
+    captionDelay: 250,
+    captionPosition: 'bottom',
+    captionType: 'attr',
+    captionsData: 'alt', 
+    
+});
+    console.log(lightbox);

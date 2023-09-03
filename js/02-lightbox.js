@@ -21,15 +21,7 @@ const ul = document.querySelector('.gallery');
 const markup = partsGallery(galleryItems);
 
 ul.insertAdjacentHTML('beforeend', markup);
-ul.addEventListener('click', onClick)
-function onClick(event) {
-    event.preventDefault();
-    const target = event.target;
-    if (target.classList.contains('gallery__image')) {
-        const parent = target.closest('.gallery__link')
-        lightbox.open(parent);
-    }
-}
+
 
 const lightbox = new SimpleLightbox('.gallery a', {
     sourceAttr: 'href', 
@@ -40,4 +32,4 @@ const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt', 
     
 });
-    console.log(lightbox);
+    

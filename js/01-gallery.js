@@ -35,7 +35,7 @@ function onClick(event) {
 
     const original = event.target.dataset.source;
     const description = event.target.alt;
-    console.log(event.target.dataset.source);
+    
     // modal
 const modalInstance = basicLightbox.create(`
     <div class="modal">
@@ -49,7 +49,7 @@ const modalInstance = basicLightbox.create(`
 `)
 
     modalInstance.show();
-    console.log(description);
+    
     document.addEventListener('keydown', onKeyPress);
 }
 function onKeyPress(event) {

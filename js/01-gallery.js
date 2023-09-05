@@ -28,7 +28,7 @@ ul.insertAdjacentHTML('beforeend', markup);
 
 
 let instance = null;
-placeElementRef.addEventListener("click", (event) => {
+ul.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target.classList.contains("gallery__image")) {
     const imageSource = event.target.dataset.source;
